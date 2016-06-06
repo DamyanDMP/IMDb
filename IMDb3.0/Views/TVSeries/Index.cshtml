@@ -53,9 +53,11 @@
             @if (User.Identity.Name == "adminn69@gmail.com")
             {
                 @Html.ActionLink("Edit", "Edit", new { id=item.TVSeriesID })<span> |</span>
-
-                @Html.ActionLink("Delete", "Delete", new { id=item.TVSeriesID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.TVSeriesID })<span> |</span>
             }
+            @Html.ActionLink("Details", "Details", new { id = item.TVSeriesID })
+
+
         </td>
     </tr>
 }
