@@ -15,9 +15,16 @@ namespace IMDb3._0.Controllers
         private TVSeriesDBContext db = new TVSeriesDBContext();
 
         // GET: Actors
-        public ActionResult Index()
+        public ActionResult Index(int? SelectedTVSeries)
         {
-            var actors = db.Actors.Include(a => a.TVSeries);
+            var tvSeries = db.TVSeries.OrderBy(q => q.Title).ToList();
+            ViewBag.SelectedTVSeries = new SelectList(tvSeries, "TVSeriesID", "Title", SelectedTVSeries);
+            int tvSeriesID = SelectedTVSeries.GetValueOrDefault();
+            IQueryable<Actors> actors = db.Actors
+                .Where(c => !SelectedTVSeries.HasValue || c.TVSeriesID == tvSeriesID)
+                .OrderBy(d => d.ActorsID)
+                .Include(d => d.TVSeries);
+            var sql = actors.ToString();
             return View(actors.ToList());
         }
 

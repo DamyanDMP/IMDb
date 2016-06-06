@@ -12,6 +12,13 @@
         @Html.ActionLink("Create New", "Create")
     }
 </p>
+@using (Html.BeginForm())
+{
+    <p>
+        Select TVSeries: @Html.DropDownList("SelectedTVSeries", "All")
+        <input type="submit" value="Filter" />
+    </p>
+}
 <table class="table">
     <tr style="background-color: #808080">
         <th>
