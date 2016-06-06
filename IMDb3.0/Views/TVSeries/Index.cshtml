@@ -1,0 +1,63 @@
+﻿@model IEnumerable<IMDb3._0.Models.TVSeries>
+
+@{
+    ViewBag.Title = "TVSeries";
+}
+
+<h2>TVSeries</h2>
+<hr />
+    @if (User.Identity.Name == "adminn69@gmail.com")
+        {       
+        <p>
+        @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+<table class="table">
+    <tr style="background-color: #808080">
+        <th>
+            Poster:
+        </th>
+        <th>
+            Title:
+        </th>
+        <th>
+            Release Date:
+        </th>
+        <th>
+            Genre:
+        </th>
+        <th>
+            Seasons:
+        </th>
+        <th></th>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            <a href="@Url.Action("Details", "TVSeries", new { id = item.TVSeriesID })"><img class="index-poster-img" src="@Html.DisplayFor(modelItem => item.PosterUlr)" alt="Alternate Text" /></a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Genre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberSeasons)
+        </td>
+        <td>
+            @if (User.Identity.Name == "adminn69@gmail.com")
+            {
+                @Html.ActionLink("Edit", "Edit", new { id=item.TVSeriesID })<span> |</span>
+
+                @Html.ActionLink("Delete", "Delete", new { id=item.TVSeriesID })
+            }
+        </td>
+    </tr>
+}
+
+</table>

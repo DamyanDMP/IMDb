@@ -1,0 +1,102 @@
+﻿@model IMDb3._0.Models.TVSeries
+
+@{
+    ViewBag.Title = Model.Title + " (" + Model.ReleaseDate.Year + ") ";
+}
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Title) 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title) <span> (@Html.DisplayFor(model => model.ReleaseDate.Year))</span>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PosterUlr)
+        </dt>
+
+        <dd>
+
+            <img class="details-poster-img" src="@Html.DisplayFor(model => model.PosterUlr)" alt="Alternate Text" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberSeasons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberSeasons)
+        </dd>
+
+    </dl>
+    <div>
+        <hr />
+
+        <h3>Cast:</h3>
+
+        @foreach (var item in Model.Actors)
+        {
+            if (item.TVSeriesID == this.Model.TVSeriesID)
+            {
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => item.FirstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => item.LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => item.PictureUrl)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => item.LinkUrl)
+                        </th>
+                        <th></th>
+                    </tr>
+                        <tr>
+                            <td>
+                                <img class="index-poster-img" src="@Html.DisplayFor(modelItem => item.PictureUrl)" alt="Alternate Text" />                           
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LastName)
+                            </td>
+                            
+                            <td>
+                                <a href="@Html.DisplayFor(modelItem => item.LinkUrl)">Link for more information!</a>
+                            </td>
+                         
+                        </tr>
+                </table>
+            }
+        }</div>
+    </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TVSeriesID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

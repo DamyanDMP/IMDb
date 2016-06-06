@@ -1,0 +1,66 @@
+﻿@model IEnumerable<IMDb3._0.Models.Actors>
+
+@{
+    ViewBag.Title = "Actors";
+}
+
+<h2>Actors</h2>
+<hr />
+<p>
+    @if (User.Identity.Name == "adminn69@gmail.com")
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+<table class="table">
+    <tr style="background-color: #808080">
+        <th>
+            Picture:
+        </th>
+        <th>
+            First Name:
+        </th>
+        <th>
+            Last Name:
+        </th>
+       
+        <th>
+            Info:
+        </th>
+        <th>
+            TVSeries:
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Url.Action("Details", "Actors", new { id = item.ActorsID })"><img class="index-poster-img" src="@Html.DisplayFor(modelItem => item.PictureUrl)" alt="Alternate Text" /></a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            <a class="shows" href="@Html.DisplayFor(modelItem => item.LinkUrl)">Info...</a>
+            
+        </td>
+        <td>
+            <a class="shows" href="@Url.Action("Details", "TVSeries", new {id = item.TVSeriesID })">@Html.DisplayFor(modelItem => item.TVSeries.Title)</a>
+            
+        </td>
+        <td>
+            @if (User.Identity.Name == "adminn69@gmail.com")
+            {
+                @Html.ActionLink("Edit", "Edit", new { id=item.ActorsID }) <span> |</span>
+
+                @Html.ActionLink("Delete", "Delete", new { id=item.ActorsID })
+            }
+        </td>
+    </tr>
+}
+
+</table>
