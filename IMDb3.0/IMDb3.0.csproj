@@ -181,8 +181,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_Data\aspnet-IMDb3.0-20160605011932.mdf" />
-    <EmbeddedResource Include="App_Data\TVSeries.mdf" />
+    <Content Include="App_Data\aspnet-IMDb3.0-20160605011932.mdf" />
+    <Content Include="App_Data\TVSeries.mdf" />
     <Content Include="App_Data\TVSeries_log.ldf">
       <DependentUpon>TVSeries.mdf</DependentUpon>
     </Content>
@@ -206,7 +206,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

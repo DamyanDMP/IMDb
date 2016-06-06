@@ -49,7 +49,7 @@
             
         </td>
         <td>
-            <a class="shows" href="@Url.Action("Details", "TVSeries", new {id = item.TVSeriesID })">@Html.DisplayFor(modelItem => item.TVSeries.Title)</a>
+            <a class="shows" href="@Url.Action("Details", "TVSeries", new { id = item.TVSeriesID })">@Html.DisplayFor(modelItem => item.TVSeries.Title)</a>
             
         </td>
         <td>
@@ -57,8 +57,9 @@
             {
                 @Html.ActionLink("Edit", "Edit", new { id=item.ActorsID }) <span> |</span>
 
-                @Html.ActionLink("Delete", "Delete", new { id=item.ActorsID })
+                @Html.ActionLink("Delete", "Delete", new { id=item.ActorsID }) <span> |</span>
             }
+            @Html.ActionLink("Details", "Details", new { id = item.TVSeriesID })
         </td>
     </tr>
 }
