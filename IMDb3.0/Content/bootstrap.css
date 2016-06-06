@@ -4933,22 +4933,41 @@ a.list-group-item.active > .badge,
 }
 
 .jumbotron {
-  padding: 30px;
+  padding: 0px;
   margin-bottom: 30px;
   font-size: 21px;
   font-weight: 200;
-  line-height: 2.1428571435;
+  line-height: 1.1428571435;
   color: inherit;
   background-color: #eeeeee;
 }
 
 .jumbotron h1 {
-  line-height: 1;
-  color: inherit;
+    margin-top: 0px;
+    line-height: 1;
+    color: black;
+    position: relative;
+    bottom: 40px;
+    right: 20px;
+    font-weight: bold;
+}
+#imdb{
+    padding:2px;
+    font-size: 25px;
+    background:linear-gradient(white, yellow);
+    border-radius: 8px;
+    border: 1px solid black;
+    color: black;
+    position:relative;
+    bottom:7px;
+    right:10px;
 }
 
 .jumbotron p {
-  line-height: 1.4;
+    position:relative;
+    bottom:40px;
+    right: 20px;
+    line-height: 1;
 }
 
 .container .jumbotron {
@@ -6859,5 +6878,14 @@ td.visible-print {
 
 .textt{
     text-shadow: 1px 1px black;
-
+}
+#slaider{
+    height: 400px;
+}
+.slade-images{
+    height: 400px;
+    width: 100%;
+}
+#title-back{
+    height: 150px;
 }
