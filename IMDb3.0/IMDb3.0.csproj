@@ -181,8 +181,8 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-IMDb3.0-20160605011932.mdf" />
-    <Content Include="App_Data\TVSeries.mdf" />
+    <EmbeddedResource Include="App_Data\aspnet-IMDb3.0-20160605011932.mdf" />
+    <EmbeddedResource Include="App_Data\TVSeries.mdf" />
     <Content Include="App_Data\TVSeries_log.ldf">
       <DependentUpon>TVSeries.mdf</DependentUpon>
     </Content>
