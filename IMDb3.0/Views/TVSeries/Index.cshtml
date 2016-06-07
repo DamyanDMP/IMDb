@@ -12,54 +12,44 @@
         @Html.ActionLink("Create New", "Create")
         </p>
     }
-<table class="table">
-    <tr style="background-color: #808080">
-        <th>
-            Poster:
-        </th>
-        <th>
-            Title:
-        </th>
-        <th>
-            Release Date:
-        </th>
-        <th>
-            Genre:
-        </th>
-        <th>
-            Seasons:
-        </th>
-        <th></th>
+<div class="roww">
 
-        @foreach (var item in Model)
-        {
-    <tr>
-        <td>
-            <a href="@Url.Action("Details", "TVSeries", new { id = item.TVSeriesID })"><img class="index-poster-img" src="@Html.DisplayFor(modelItem => item.PosterUlr)" alt="Alternate Text" /></a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate.Year)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Genre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberSeasons)
-        </td>
-        <td>
-            @if (User.Identity.Name == "adminn69@gmail.com")
-            {
-                @Html.ActionLink("Edit", "Edit", new { id=item.TVSeriesID })<span> |</span>
-                @Html.ActionLink("Delete", "Delete", new { id = item.TVSeriesID })<span> |</span>
-            }
-            @Html.ActionLink("Details", "Details", new { id = item.TVSeriesID })
+</div>
+@*<a class="movie" href="@Url.Action("Details", "TVSeries", new { id = item.TVSeriesID })">
+</a>*@
+    @foreach (var item in Model)
+    {
+        <a class="movie" href="@Url.Action("Details", "TVSeries", new { id = item.TVSeriesID })">
+            <div class="movie">
+                <table class="table">
 
+                    <tr>
+                        <td>
+                            <img class="index-poster-img" src="@Html.DisplayFor(modelItem => item.PosterUlr)" alt="Alternate Text" />
+                        </td>
+                        <td>
+                            <strong>Title: </strong> @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            <strong>Release Date: </strong> @Html.DisplayFor(modelItem => item.ReleaseDate.Year)
+                        </td>
+                        <td>
+                            <strong>Genre: </strong> @Html.DisplayFor(modelItem => item.Genre)
+                        </td>
+                        <td>
+                            <strong>Seasons:</strong> @Html.DisplayFor(modelItem => item.NumberSeasons)
+                        </td>
+                        @if (User.Identity.Name == "adminn69@gmail.com")
+                        {
+                            <td>
 
-        </td>
-    </tr>
-}
+                                @Html.ActionLink("Edit", "Edit", new { id = item.TVSeriesID })<span> |</span>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.TVSeriesID })
+                            </td>
+                        }
 
-</table>
+                    </tr>
+                </table>
+            </div>
+        </a>
+    }

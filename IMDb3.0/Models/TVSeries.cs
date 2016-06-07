@@ -16,6 +16,7 @@ namespace IMDb3._0.Models
         public int NumberSeasons { get; set; }
         public virtual ICollection<Actors> Actors { get; set; }
 
+
     }
 
     public class TVSeriesDBContext : DbContext
