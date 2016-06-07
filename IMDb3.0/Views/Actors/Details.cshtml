@@ -9,14 +9,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Picture
+            Picture:
         </dt>
         <dd>
             <img class="details-poster-img" src="@Html.DisplayFor(model => model.PictureUrl)" alt="Alternate Text" />
         </dd>
         <br />
         <dt>
-            First Name
+            First Name:
         </dt>
 
         <dd>
@@ -24,14 +24,14 @@
         </dd>
 
         <dt>
-            Last Name
+            Last Name:
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.LastName)
         </dd>
         <dt>
-            Link to IMDb
+            Link to IMDb:
         </dt>
 
         <dd>
@@ -39,12 +39,11 @@
             <a class="shows" href="@Html.DisplayFor(model => model.LinkUrl)">Link for IMDb...</a>
         </dd>
         <dt>
-            TV Series 
+            TV Series:
         </dt>
 
         <dd>
-
-            @Html.DisplayFor(model => model.TVSeries.Title)
+            <a class="shows" href="@Url.Action("Details", "TVSeries", new { id = Model.TVSeries.TVSeriesID }))"> @Html.DisplayFor(model => model.TVSeries.Title)</a>
         </dd>
     </dl>
 </div>
