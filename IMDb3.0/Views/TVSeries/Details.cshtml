@@ -62,16 +62,16 @@
                 <table class="table">
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => item.FirstName)
+                            Picture
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => item.LastName)
+                            First Name
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => item.PictureUrl)
+                            Last Name
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => item.LinkUrl)
+                            Link
                         </th>
                         <th></th>
                     </tr>
@@ -87,7 +87,7 @@
                             </td>
                             
                             <td>
-                                <a href="@Html.DisplayFor(modelItem => item.LinkUrl)">Link for more information!</a>
+                                <a class="shows" href="@Html.DisplayFor(modelItem => item.LinkUrl)">IMDb-Link...</a>
                             </td>
                          
                         </tr>
