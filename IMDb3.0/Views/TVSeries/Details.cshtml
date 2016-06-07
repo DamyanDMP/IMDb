@@ -96,11 +96,11 @@
             }
         }</div>
     </div>
-<p>
+<p style="text-align:center">
     @if (User.Identity.Name == "adminn69@gmail.com")
     {
     @Html.ActionLink("Edit", "Edit", new { id = Model.TVSeriesID })        <span> | </span>
     }
-    @Html.ActionLink("Back to List", "Index")
+    <strong>@Html.ActionLink("Back to List", "Index", null, new { @class = "shows" })</strong>
 </p>
 
