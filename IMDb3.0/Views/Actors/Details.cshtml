@@ -9,13 +9,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Picture
+            Picture:
         </dt>
         <dd>
             <img class="details-poster-img" src="@Html.DisplayFor(model => model.PictureUrl)" alt="Alternate Text" />
         </dd>
+        <br />
         <dt>
-            First Name
+            First Name:
         </dt>
 
         <dd>
@@ -23,24 +24,33 @@
         </dd>
 
         <dt>
-            Last Name
+            Last Name:
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.LastName)
         </dd>
         <dt>
-            Link
+            Link to IMDb:
         </dt>
 
         <dd>
             
-            <a href="@Html.DisplayFor(model => model.LinkUrl)">Link for IMDb...</a>
+            <a class="shows" href="@Html.DisplayFor(model => model.LinkUrl)">Link for IMDb...</a>
         </dd>
+        <dt>
+            TV Series:
+        </dt>
 
+        <dd>
+            <a class="shows" href="@Url.Action("Details", "TVSeries", new { id = Model.TVSeries.TVSeriesID }))"> @Html.DisplayFor(model => model.TVSeries.Title)</a>
+        </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ActorsID }) |
-    @Html.ActionLink("Back to List", "Index")
+<p style="text-align:center">
+    @if (User.Identity.Name == "adminn69@gmail.com")
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ActorsID })        <span> | </span>
+    }
+    <strong>@Html.ActionLink("Back to List", "Index", null, new { @class = "shows"})</strong>
 </p>

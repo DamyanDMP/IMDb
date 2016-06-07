@@ -30,45 +30,50 @@
         <th>
             Last Name:
         </th>
-       
+
         <th>
             Info:
         </th>
         <th>
             TVSeries:
         </th>
-        <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <a href="@Url.Action("Details", "Actors", new { id = item.ActorsID })"><img class="index-poster-img" src="@Html.DisplayFor(modelItem => item.PictureUrl)" alt="Alternate Text" /></a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            <a class="shows" href="@Html.DisplayFor(modelItem => item.LinkUrl)">Info...</a>
-            
-        </td>
-        <td>
-            <a class="shows" href="@Url.Action("Details", "TVSeries", new { id = item.TVSeriesID })">@Html.DisplayFor(modelItem => item.TVSeries.Title)</a>
-            
-        </td>
-        <td>
-            @if (User.Identity.Name == "adminn69@gmail.com")
-            {
-                @Html.ActionLink("Edit", "Edit", new { id=item.ActorsID }) <span> |</span>
-
-                @Html.ActionLink("Delete", "Delete", new { id=item.ActorsID }) <span> |</span>
-            }
-            @Html.ActionLink("Details", "Details", new { id = item.TVSeriesID })
-        </td>
-    </tr>
-}
-
 </table>
+@foreach (var item in Model)
+{
+    <a class="movie" href="@Url.Action("Details", "Actors", new { id = item.ActorsID })">
+        <div class="movie">
+            <table class="table">
+                <tr>
+                    <td>
+                        <a href="@Url.Action("Details", "Actors", new { id = item.ActorsID })"><img class="index-poster-img" src="@Html.DisplayFor(modelItem => item.PictureUrl)" alt="Alternate Text" /></a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        <a class="shows" href="@Html.DisplayFor(modelItem => item.LinkUrl)" target="_blank">IMDb-Link...</a>
+
+                    </td>
+                    <td>
+                        <a class="shows" href="@Url.Action("Details", "TVSeries", new { id = item.TVSeriesID })">@Html.DisplayFor(modelItem => item.TVSeries.Title)</a>
+
+                    </td>
+                    @if (User.Identity.Name == "adminn69@gmail.com")
+                    {
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ActorsID }) <span> |</span>
+
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ActorsID }) <span> |</span>
+                        </td>
+                    }
+    
+                </tr>
+            </table>
+        </div>
+        </a>
+        }
+

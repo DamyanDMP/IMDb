@@ -1427,7 +1427,7 @@ th {
 .table tfoot > tr > td {
   padding: 8px;
   line-height: 1.428571429;
-  vertical-align: top;
+  vertical-align: middle;
   border-top: 1px solid #dddddd;
 }
 
@@ -1717,7 +1717,7 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #999999;
 }
 
-.form-control {
+.form-contorl {
   display: block;
   width: 100%;
   height: 34px;
@@ -6853,6 +6853,9 @@ td.visible-print {
     color: white;
     text-decoration: none;
 }
+.shows:visited {
+    text-decoration: none;
+}
 #news1{
     color: #eeeeee;
     background-image: url(http://images.latintimes.com/sites/latintimes.com/files/styles/large_breakpoints_theme_lt_desktop_1x/public/2015/11/16/norman-reedus.png);
@@ -6889,3 +6892,27 @@ td.visible-print {
 #title-back{
     height: 150px;
 }
+.movie, tr{
+    margin-top: 10px;
+    color:black;
+}
+.movie{
+    color:black;
+}
+.movie:hover{
+    color:black;
+    background-color: #d9d9d9;
+    box-shadow: 1.5px 1.5px 20px 0.5px;
+}
+a.movie:hover {
+    text-decoration: none;
+}
+
+.table{
+    table-layout:fixed;
+}
+.roww{
+    height: 30px;
+    background-color:#808080;
+}
+
